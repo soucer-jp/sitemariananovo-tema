@@ -1,0 +1,81 @@
+/* css/theme.css */
+
+:root {
+    /* --- CONFIGURAÇÃO TEMA "TOM SOBRE TOM" (Bege & Terracota) --- */
+    
+    /* 1. COR PRINCIPAL (O Bege/Taupe) */
+    /* Hue 30: A faixa exata dos tons de pele/areia/madeira clara */
+    --p-h: 30;
+    /* Saturação 25%: Baixa saturação é o segredo do "Bege Chique". */
+    /* Se aumentar muito, vira laranja. Se baixar, vira cinza. */
+    --p-s: 25%;
+
+    /* 2. COR PRIMA (O Terracota Suave) */
+    /* Hue 20: Vizinho imediato do 30. Cria uma continuidade visual quente. */
+    /* É a "cor prima" perfeita para manter a lógica de acolhimento. */
+    --s-h: 20;
+    /* Saturação 60%: Um pouco mais vida para os detalhes não ficarem apagados */
+    --s-s: 60%;
+
+    /* --- CÁLCULOS AUTOMÁTICOS (Mantidos) --- */
+    
+    /* Escala Principal (Tons de Areia/Marrom) */
+    --brand-50:  hsl(var(--p-h), var(--p-s), 98%); /* Fundo Creme/Off-white */
+    --brand-100: hsl(var(--p-h), var(--p-s), 94%); /* Cards Areia */
+    --brand-200: hsl(var(--p-h), var(--p-s), 86%);
+    --brand-300: hsl(var(--p-h), var(--p-s), 74%);
+    --brand-500: hsl(var(--p-h), var(--p-s), 50%);
+    --brand-600: hsl(var(--p-h), var(--p-s), 39%); /* Botões Marrom Taupe (Legibilidade perfeita) */
+    --brand-700: hsl(var(--p-h), var(--p-s), 30%);
+    --brand-900: hsl(var(--p-h), var(--p-s), 13%);
+
+    /* Escala Secundária (Terracota/Argila) */
+    --accent-50:  hsl(var(--s-h), var(--s-s), 98%);
+    --accent-100: hsl(var(--s-h), var(--s-s), 96%);
+    --accent-200: hsl(var(--s-h), var(--s-s), 90%);
+    --accent-300: hsl(var(--s-h), var(--s-s), 80%);
+    --accent-500: hsl(var(--s-h), var(--s-s), 62%); /* Degradês sutis */
+    --accent-600: hsl(var(--s-h), var(--s-s), 50%); /* Ícones de destaque */
+}
+/* --- SOBRESCRITA OBRIGATÓRIA (Force o novo tema) --- */
+
+/* Backgrounds */
+.bg-brand-50   { background-color: var(--brand-50) !important; }
+.bg-brand-100  { background-color: var(--brand-100) !important; }
+.bg-brand-200  { background-color: var(--brand-200) !important; }
+.bg-brand-600  { background-color: var(--brand-600) !important; }
+.bg-brand-700  { background-color: var(--brand-700) !important; }
+
+.bg-accent-50  { background-color: var(--accent-50) !important; }
+.bg-accent-100 { background-color: var(--accent-100) !important; }
+.bg-accent-200 { background-color: var(--accent-200) !important; }
+
+/* Textos */
+.text-brand-300 { color: var(--brand-300) !important; }
+.text-brand-600 { color: var(--brand-600) !important; }
+.text-brand-700 { color: var(--brand-700) !important; }
+.text-accent-600 { color: var(--accent-600) !important; }
+
+/* Bordas */
+.border-brand-200 { border-color: var(--brand-200) !important; }
+.border-brand-300 { border-color: var(--brand-300) !important; }
+.border-brand-600 { border-color: var(--brand-600) !important; }
+
+/* Transparências e Específicos */
+.bg-brand-100\/80 { background-color: hsla(var(--p-h), var(--p-s), 94%, 0.8) !important; }
+.bg-brand-600\/10 { background-color: hsla(var(--p-h), var(--p-s), 39%, 0.1) !important; }
+.bg-brand-600\/20 { background-color: hsla(var(--p-h), var(--p-s), 39%, 0.2) !important; }
+.bg-brand-600\/30 { background-color: hsla(var(--p-h), var(--p-s), 39%, 0.3) !important; }
+.bg-brand-500\/10 { background-color: hsla(var(--p-h), var(--p-s), 50%, 0.1) !important; }
+.bg-accent-500\/10 { background-color: hsla(var(--s-h), var(--s-s), 62%, 0.1) !important; }
+
+/* Gradientes - Aqui a mágica do "Verde para Azul" acontece */
+.from-brand-50  { --tw-gradient-from: var(--brand-50) !important; }
+.from-brand-100 { --tw-gradient-from: var(--brand-100) !important; }
+.from-brand-600 { --tw-gradient-from: var(--brand-600) !important; }
+
+.to-brand-50    { --tw-gradient-to: var(--brand-50) !important; }
+.to-brand-100   { --tw-gradient-to: var(--brand-100) !important; }
+.to-brand-900   { --tw-gradient-to: var(--brand-900) !important; }
+.to-accent-50   { --tw-gradient-to: var(--accent-50) !important; }
+.to-accent-500  { --tw-gradient-to: var(--accent-500) !important; }
