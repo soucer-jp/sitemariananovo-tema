@@ -88,21 +88,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
 
-      // ENVIO IMEDIATO (IGUAL AO ORIGINAL)
+      // ENVIO IMEDIATO (COM DATA-ATTRIBUTE)
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         
         if (!nameInput.value || !modalidadeSelecionada) return;
 
+        // 1. Pega o número direto do HTML (do placeholder {{WHATSAPP}})
+        const numeroDestino = form.getAttribute('data-whatsapp');
+
+        // Segurança: Se esquecerem de por o número, avisa
+        if (!numeroDestino || numeroDestino.includes("{{")) {
+            alert("Por favor, configure o número do WhatsApp no arquivo index.html");
+            return;
+        }
+
         const tipoAtendimento = modalidadeSelecionada === "online" ? "consultas *online*" : "consultas *presenciais*";
-        const mensagem = `Olá, Maria Eduarda! 👋\n\nMeu nome é *${nameInput.value}* e gostaria de agendar uma sessão de psicoterapia.\n\nTenho interesse em ${tipoAtendimento}.\n\nPoderia me informar sobre:\n• Valores das sessões\n• Disponibilidade de horários\n• Como funciona o processo\n\nFico no aguardo do seu retorno! 😊`;
         
-        const linkWhatsapp = `https://wa.me/5528999647361?text=${encodeURIComponent(mensagem)}`;
+        // Dica: Tirei o "Maria Eduarda" fixo da mensagem também para ficar 100% genérico
+        const mensagem = `Olá! 👋\n\nMeu nome é *${nameInput.value}* e gostaria de agendar uma sessão de psicoterapia.\n\nTenho interesse em ${tipoAtendimento}.\n\nPoderia me informar sobre:\n• Valores das sessões\n• Disponibilidade de horários\n• Como funciona o processo\n\nFico no aguardo do seu retorno! 😊`;
         
-        // Abre instantaneamente
+        // Usa o número dinâmico
+        const linkWhatsapp = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensagem)}`;
+        
         window.open(linkWhatsapp, '_blank');
-        
-        // Reseta o formulário instantaneamente
         resetarFormulario();
       });
     }
@@ -184,5 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+     
 
 });

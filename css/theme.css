@@ -1,43 +1,37 @@
 /* css/theme.css */
 
 :root {
-    /* --- CONFIGURAÇÃO TEMA "TOM SOBRE TOM" (Bege & Terracota) --- */
+    /* --- TEMA GREIGE (Luxo Moderno) --- */
     
-    /* 1. COR PRINCIPAL (O Bege/Taupe) */
-    /* Hue 30: A faixa exata dos tons de pele/areia/madeira clara */
-    --p-h: 30;
-    /* Saturação 25%: Baixa saturação é o segredo do "Bege Chique". */
-    /* Se aumentar muito, vira laranja. Se baixar, vira cinza. */
-    --p-s: 25%;
+    /* 1. PRINCIPAL (Cinza Quente) */
+    /* Hue 40: Base amarelada, mas com saturação baixíssima */
+    --p-h: 40;
+    /* Saturação 12%: Quase cinza, mas com um "calorzinho" de fundo */
+    --p-s: 12%;
 
-    /* 2. COR PRIMA (O Terracota Suave) */
-    /* Hue 20: Vizinho imediato do 30. Cria uma continuidade visual quente. */
-    /* É a "cor prima" perfeita para manter a lógica de acolhimento. */
-    --s-h: 20;
-    /* Saturação 60%: Um pouco mais vida para os detalhes não ficarem apagados */
-    --s-s: 60%;
+    /* 2. DESTAQUE (Ouro Velho) */
+    /* Hue 45: Dourado */
+    --s-h: 45;
+    /* Saturação 50%: Metalizado fosco */
+    --s-s: 50%;
 
-    /* --- CÁLCULOS AUTOMÁTICOS (Mantidos) --- */
-    
-    /* Escala Principal (Tons de Areia/Marrom) */
-    --brand-50:  hsl(var(--p-h), var(--p-s), 98%); /* Fundo Creme/Off-white */
-    --brand-100: hsl(var(--p-h), var(--p-s), 94%); /* Cards Areia */
+    /* ... MANTENHA O RESTO ... */
+    --brand-50:  hsl(var(--p-h), var(--p-s), 98%);
+    --brand-100: hsl(var(--p-h), var(--p-s), 94%);
     --brand-200: hsl(var(--p-h), var(--p-s), 86%);
     --brand-300: hsl(var(--p-h), var(--p-s), 74%);
     --brand-500: hsl(var(--p-h), var(--p-s), 50%);
-    --brand-600: hsl(var(--p-h), var(--p-s), 39%); /* Botões Marrom Taupe (Legibilidade perfeita) */
+    --brand-600: hsl(var(--p-h), var(--p-s), 39%);
     --brand-700: hsl(var(--p-h), var(--p-s), 30%);
     --brand-900: hsl(var(--p-h), var(--p-s), 13%);
 
-    /* Escala Secundária (Terracota/Argila) */
     --accent-50:  hsl(var(--s-h), var(--s-s), 98%);
     --accent-100: hsl(var(--s-h), var(--s-s), 96%);
     --accent-200: hsl(var(--s-h), var(--s-s), 90%);
     --accent-300: hsl(var(--s-h), var(--s-s), 80%);
-    --accent-500: hsl(var(--s-h), var(--s-s), 62%); /* Degradês sutis */
-    --accent-600: hsl(var(--s-h), var(--s-s), 50%); /* Ícones de destaque */
+    --accent-500: hsl(var(--s-h), var(--s-s), 62%);
+    --accent-600: hsl(var(--s-h), var(--s-s), 50%);
 }
-/* --- SOBRESCRITA OBRIGATÓRIA (Force o novo tema) --- */
 
 /* Backgrounds */
 .bg-brand-50   { background-color: var(--brand-50) !important; }
@@ -79,3 +73,12 @@
 .to-brand-900   { --tw-gradient-to: var(--brand-900) !important; }
 .to-accent-50   { --tw-gradient-to: var(--accent-50) !important; }
 .to-accent-500  { --tw-gradient-to: var(--accent-500) !important; }
+
+/* --- TRAVA DE IMAGEM (Mobile Friendly) --- */
+/* Força a imagem a ser um quadrado perfeito e foca no rosto */
+.img-quadrada {
+    aspect-ratio: 1 / 1 !important;       /* Trava largura = altura */
+    object-fit: cover !important;         /* Corta as bordas, não estica a pessoa */
+    object-position: top center !important; /* Foca no topo (rosto), evita cortar a cabeça */
+    height: auto !important;              /* Garante fluidez */
+}
